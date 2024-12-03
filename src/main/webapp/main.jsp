@@ -8,16 +8,14 @@ if (userId == null) {
 	out.print("메인페이지임");
 	session.setAttribute("id", userId);
 }
-
 %>
-<br>
-<%
+<%-- <%
 String strcnt = (String) application.getAttribute("counter");
 int count = (strcnt == null) ? 0 : Integer.valueOf(strcnt);
 out.print("방문자수: "+ count);
 application.setAttribute("counter", String.valueOf(++count));
-%>
-<!-- <!DOCTYPE html>
+%> --%>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -26,4 +24,4 @@ application.setAttribute("counter", String.valueOf(++count));
 <body>
 
 </body>
-</html> -->
+</html>
