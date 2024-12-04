@@ -1,6 +1,7 @@
+<%@page import="dao.UserDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@page import="java.sql.*"%>
+<%-- <%@page import="java.sql.*"%>
 
 <%
 request.setCharacterEncoding("utf-8");
@@ -30,6 +31,25 @@ if (count == 1) {
 	out.print("회원가입이 완료");
 } else {
 	out.print("오류발생");
+}
+%> --%>
+<%
+request.setCharacterEncoding("utf-8");
+
+String userId = request.getParameter("id");
+String userPassword = request.getParameter("password");
+String userName = request.getParameter("name");
+
+UserDAO dao = new UserDAO();
+if (dao.exists(userId)) {
+	out.print("이미 가입한 회원입니다.");
+	return;
+}
+
+if (dao.insert(userId, userPassword, userName)) {
+	out.print("회원가입 완료");
+} else {
+	out.print("회원가입 처리 중 오류 발생");
 }
 %>
 <!DOCTYPE html>
